@@ -4,7 +4,7 @@ let TodoContainer = ({items,onDeleteClick})=>{
     return (
     <div key={items} className={css.itemsContainer}>
       {items.map((item)=>(
-        <Todoitem todoDate={item.todoDate} todoTask={item.todoTask} 
+        <Todoitem key={item.todoTask} todoDate={item.todoDate} todoTask={item.todoTask} 
         onDeleteClick={onDeleteClick}/>
       ))}
     </div>
