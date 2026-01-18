@@ -1,5 +1,5 @@
 import css from "./Todoitem.module.css"
-function Todoitem({todoTask, todoDate}) {
+function Todoitem({todoTask, todoDate, onDeleteClick}) {
   return <div className="container">
     <div className={`row ${css.newRow}`}>
       <div className="col-6">
@@ -9,7 +9,8 @@ function Todoitem({todoTask, todoDate}) {
         {todoDate}
       </div>
       <div className="col-2">
-        <button type="button" className={`btn btn-danger ${css.newbutton}`}>Delete
+        <button type="button" className={`btn btn-danger ${css.newbutton}`}
+        onClick={()=>onDeleteClick(todoTask)}>Delete
         </button>
       </div>
     </div>
