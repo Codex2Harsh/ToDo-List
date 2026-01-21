@@ -22,8 +22,12 @@ function App() {
   
   let onAddPress = (todoTask,todoDate)=>{
     // console.log(`task is: ${todoTask} and date is: ${todoDate}`);
-    let newData = [...todoItems,{todoTask: todoTask, todoDate:todoDate}];
-    setTodoItems(newData);
+    //using spread operator here might cause error as react works in async state
+    // let newData = [...todoItems,{todoTask: todoTask, todoDate:todoDate}];
+    // setTodoItems(newData);
+    //instead we use functional updates here
+    //now the data will update without any error
+    setTodoItems((currValue)=>[...currValue,{todoTask: todoTask, todoDate:todoDate}]);
   }
 
   let handleDelete =(itemName) =>{
@@ -35,7 +39,8 @@ function App() {
   return <center className="todo-container">
     <AppName />
       <AddTodo  onAddPress={onAddPress}/>
-      {todoItems.length === 0 ? <WelcomeMessage /> : <AddTaskMessage />}
+      <WelcomeMessage todoItems={todoItems} /> 
+      <AddTaskMessage todoItems={todoItems} />
     <TodoContainer items = {todoItems} onDeleteClick={handleDelete}/>
   </center>
 }

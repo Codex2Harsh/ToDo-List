@@ -14,7 +14,7 @@ function AddTodo({onAddPress}) {
 
   // let onHandleTask = (event) => {
   // setTask(event.target.value);
-  // //to get the number of page reloads
+  // //to get the number of page reloads from useRef varble
   // numberOfUpdates.current +=1;
   // }
   // let onHandleDate = (event) => {
